@@ -124,6 +124,7 @@ const main = async(refferal, x) => {
             proxy = await proxys()
             if (proxy === undefined) {
                 console.log('Semua proxylu jelek bg, cari lain dulu');
+                break;
             }
             console.log(`Using proxy ${proxy}...`);
             pointer ++

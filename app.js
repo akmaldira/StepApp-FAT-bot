@@ -100,6 +100,10 @@ const ask = msg => new Promise(resolve =>
     rl.question(msg, response => resolve(response))
 );
 
+var logger = fs.createWriteStream('result.txt', {
+    flags: 'a'
+})
+
 rl.question('Refferal : ', function (refferal) {
     rl.question('How much : ', async function (x) {
         var loop = parseInt(x) - 1;
@@ -107,12 +111,7 @@ rl.question('Refferal : ', function (refferal) {
             await main(refferal)
             .then((res) => {
                 if (res !== null) {
-                    const content = res
-                    fs.writeFile('result.txt', content, err => {
-                        if (err) {
-                          console.error(err);
-                        }
-                    });
+                    logger.write(res+'\n')
                 }
             })
         }

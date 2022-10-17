@@ -122,6 +122,9 @@ const main = async(refferal, x) => {
             console.log(otp);
             console.log('Register limit / bad proxy, try new proxy...\n');
             proxy = await proxys()
+            if (proxy === undefined) {
+                console.log('Semua proxylu jelek bg, cari lain dulu');
+            }
             console.log(`Using proxy ${proxy}...`);
             pointer ++
             i--
